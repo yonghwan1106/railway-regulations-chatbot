@@ -42,7 +42,7 @@ export function SignUpForm({ onToggleMode }: SignUpFormProps) {
       
       if (error) {
         setError(error.message);
-      } else if (data.user) {
+      } else if (data?.user) {
         // 수동으로 프로필 생성
         const { error: profileError } = await supabase
           .from('profiles')
