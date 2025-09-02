@@ -6,7 +6,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Auth helpers
-export const signUp = async (email: string, password: string, userData?: any) => {
+export const signUp = async (email: string, password: string, userData?: Record<string, unknown>) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,

@@ -3,9 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 
+interface Regulation {
+  id: string;
+  title: string;
+  content: string;
+  source_document: string;
+  article_number: string;
+  category: string;
+}
+
 interface RequestBody {
   query: string;
-  regulations: any[];
+  regulations: Regulation[];
   userId?: string;
 }
 
@@ -30,7 +39,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body: RequestBody = await request.json();
-    const { query, regulations, userId } = body;
+    const { query, regulations } = body;
 
     if (!query) {
       return NextResponse.json(

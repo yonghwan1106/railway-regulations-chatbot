@@ -1,5 +1,5 @@
 import { supabase } from '@/supabase/client';
-import { Regulation, RegulationSearchResult, ChatMessage, RegulationConflict } from '@/types/규정';
+import { Regulation, ChatMessage, RegulationConflict } from '@/types/규정';
 
 export class RegulationSearchService {
   private static readonly ANTHROPIC_API_ENDPOINT = '/api/claude-search';
@@ -172,7 +172,7 @@ export class RegulationSearchService {
     }
   }
 
-  static async getUserBookmarks(userId: string): Promise<any[]> {
+  static async getUserBookmarks(userId: string): Promise<unknown[]> {
     const { data, error } = await supabase
       .from('bookmarks')
       .select(`
@@ -190,7 +190,7 @@ export class RegulationSearchService {
   }
 
   // 검색 기록 관련 메서드들
-  static async getUserSearchHistory(userId: string, limit: number = 20): Promise<any[]> {
+  static async getUserSearchHistory(userId: string, limit: number = 20): Promise<unknown[]> {
     const { data, error } = await supabase
       .from('search_history')
       .select('*')
