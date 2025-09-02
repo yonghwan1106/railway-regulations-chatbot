@@ -128,8 +128,8 @@ export class RegulationSearchService {
   }
 
   private static hasNumericDifferences(content1: string, content2: string): boolean {
-    const numbers1 = content1.match(/\d+(?:\.\d+)?/g) || [];
-    const numbers2 = content2.match(/\d+(?:\.\d+)?/g) || [];
+    const numbers1: string[] = content1.match(/\d+(?:\.\d+)?/g) || [];
+    const numbers2: string[] = content2.match(/\d+(?:\.\d+)?/g) || [];
     
     return numbers1.length > 0 && numbers2.length > 0 && 
            !numbers1.some(num => numbers2.includes(num));
