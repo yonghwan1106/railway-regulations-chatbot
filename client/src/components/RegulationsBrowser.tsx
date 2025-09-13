@@ -215,6 +215,7 @@ const RegulationsBrowser: React.FC = () => {
     } else {
       loadAllRegulations();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, selectedCategory]);
 
   const loadCategories = async () => {
