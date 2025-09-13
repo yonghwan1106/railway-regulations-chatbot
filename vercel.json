@@ -21,11 +21,6 @@
       "dest": "/client/build/index.html"
     }
   ],
-  "env": {
-    "ANTHROPIC_API_KEY": "@anthropic_api_key",
-    "NODE_ENV": "production",
-    "CLIENT_URL": "https://railway-regulations-chatbot.vercel.app"
-  },
   "installCommand": "npm install && cd server && npm install && cd ../client && npm install",
   "buildCommand": "cd client && npm run build"
 }
