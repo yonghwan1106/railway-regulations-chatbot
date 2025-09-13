@@ -2,20 +2,20 @@
   "version": 2,
   "buildCommand": "cd client && npm ci && npm run build",
   "outputDirectory": "client/build",
-  "framework": null,
-  "functions": {
-    "server/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/server/index.js"
+      "src": "server/index.js",
+      "use": "@vercel/node@3.0.7"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/index.js"
     },
     {
-      "source": "/((?!api).*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
