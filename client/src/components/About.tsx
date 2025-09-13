@@ -178,6 +178,7 @@ const About: React.FC = () => {
       <AboutHeader>
         <h1>🚄 KR-CODE 지능형 가이드</h1>
         <p>
+          📋 <strong>국민참여 철도규제 개선제안 공모전 출품작</strong><br />
           AI 기반 철도건설규정 통합검색 시스템<br />
           복잡한 규정, 이제 간단한 질문으로 해결하세요
         </p>
