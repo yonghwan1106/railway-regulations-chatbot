@@ -10,7 +10,9 @@ import {
   StatsOverview
 } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? '/api' 
+  : process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 // Axios 인스턴스 생성
 const apiClient = axios.create({

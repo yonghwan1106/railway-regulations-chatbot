@@ -26,7 +26,10 @@ app.use('/api', limiter);
 
 // CORS 설정
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000', 
+    'https://railway-regulations-chatbot.vercel.app'
+  ],
   credentials: true
 }));
 
@@ -73,8 +76,14 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: '요청하신 리소스를 찾을 수 없습니다.' });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚄 Railway Regulations Chatbot Server running on port ${PORT}`);
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🔗 Health check: http://localhost:${PORT}/api/health`);
-});
+// Vercel용 export
+module.exports = app;
+
+// 로컬 개발용
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚄 Railway Regulations Chatbot Server running on port ${PORT}`);
+    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`🔗 Health check: http://localhost:${PORT}/api/health`);
+  });
+}
