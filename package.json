@@ -5,7 +5,7 @@
   "main": "client/src/index.tsx",
   "scripts": {
     "dev": "cd client && npm start",
-    "build": "cd client && npm run build && cp -r server api",
+    "build": "cd client && npm run build",
     "start": "cd client && npm start",
     "install": "cd client && npm install && cd ../server && npm install",
     "test": "npx playwright test",
