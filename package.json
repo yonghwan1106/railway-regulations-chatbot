@@ -7,9 +7,22 @@
     "dev": "cd client && npm start",
     "build": "cd client && npm run build && cp -r server api",
     "start": "cd client && npm start",
-    "install": "cd client && npm install && cd ../server && npm install"
+    "install": "cd client && npm install && cd ../server && npm install",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:report": "npx playwright show-report"
   },
-  "keywords": ["AI", "chatbot", "railway", "regulations", "KR-CODE"],
+  "keywords": [
+    "AI",
+    "chatbot",
+    "railway",
+    "regulations",
+    "KR-CODE"
+  ],
   "author": "박용환",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.55.0"
+  }
 }
